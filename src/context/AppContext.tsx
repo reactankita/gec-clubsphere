@@ -95,7 +95,7 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const STORAGE_KEY_PREFIX = 'gec_clubsphere_';
+const STORAGE_KEY_PREFIX = 'gec_clubsphere_v4_';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize state with default mock data, attempting to read from localStorage on client
@@ -123,7 +123,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (savedUser) setCurrentUser(JSON.parse(savedUser));
 
       const savedClubs = localStorage.getItem(STORAGE_KEY_PREFIX + 'clubs');
-      if (savedClubs) setClubs(JSON.parse(savedClubs));
+      if (savedClubs) {
+        const parsed = JSON.parse(savedClubs) as Club[];
+        const merged = parsed.map((c) => {
+          const init = INITIAL_CLUBS.find((i) => i.id === c.id);
+          return init
+            ? {
+                ...init,
+                ...c,
+                council: c.council || init.council,
+                council_history: c.council_history || init.council_history,
+                next_meeting: c.next_meeting || init.next_meeting,
+                faculty_advisor: c.faculty_advisor || init.faculty_advisor,
+                flagship_events: c.flagship_events || init.flagship_events
+              }
+            : c;
+        });
+        setClubs(merged);
+      }
 
       const savedEvents = localStorage.getItem(STORAGE_KEY_PREFIX + 'events');
       if (savedEvents) setEvents(JSON.parse(savedEvents));

@@ -81,7 +81,7 @@ export const DEMO_USERS: UserProfile[] = [
   }
 ];
 
-export const INITIAL_CLUBS: Club[] = [
+const RAW_CLUBS: Club[] = [
   {
     id: 'club-01',
     name: 'GEC Coders Club',
@@ -588,6 +588,322 @@ export const INITIAL_CLUBS: Club[] = [
     created_at: '2024-01-11T10:00:00Z'
   }
 ];
+
+export const INITIAL_CLUBS: Club[] = RAW_CLUBS.map((club) => {
+  if (club.slug === 'gec-coders-club') {
+    return {
+      ...club,
+      faculty_advisor: {
+        name: 'Prof. Aisha Naik',
+        designation: 'Associate Professor & Dept Coordinator',
+        department: 'Computer Engineering',
+        email: 'faculty.coders@gec.ac.in',
+        cabin: 'IT & Comp Block, Room 204'
+      },
+      next_meeting: {
+        title: 'Weekly Competitive Coding Sprint & SIH Brainstorming',
+        date: '2026-11-26',
+        time: '04:30 PM - 06:00 PM',
+        venue: 'Central Computer Center (CCC) Lab 2',
+        agenda: 'Tree dynamic programming, graph algorithms, and review of Smart India Hackathon internal submissions.',
+        mode: 'In-Person' as const
+      },
+      flagship_events: [
+        'CodeSprint 24-Hour Inter-Collegiate Hackathon',
+        'Goa Collegiate CodeJam & AlgoSprint',
+        'Winter of Open Source Bootcamp',
+        'ICPC Orientation & Regional Mock Contests'
+      ],
+      council: [
+        { name: 'Sanket Prabhu', role: 'President / Student Lead', department: 'Computer Engineering', year: 'TE' as const, email: 'sanket.p@gec.ac.in', github: 'https://github.com' },
+        { name: 'Neha Varde', role: 'Vice President / Co-Lead', department: 'Information Technology', year: 'TE' as const, email: 'neha.v@gec.ac.in' },
+        { name: 'Aryan Chari', role: 'Technical Head', department: 'Computer Engineering', year: 'BE' as const, email: 'aryan.c@gec.ac.in', github: 'https://github.com' },
+        { name: 'Tanvi Shirodkar', role: 'Hackathons & Events Lead', department: 'Electronics & Telecom', year: 'TE' as const, email: 'tanvi.s@gec.ac.in' },
+        { name: 'Rohan Fernandes', role: 'Open Source & PR Lead', department: 'Information Technology', year: 'SE' as const, email: 'rohan.f@gec.ac.in', github: 'https://github.com' },
+        { name: 'Kunal Borkar', role: 'Treasurer & Logistics', department: 'Computer Engineering', year: 'SE' as const, email: 'kunal.b@gec.ac.in' }
+      ],
+      council_history: [
+        {
+          academic_year: '2024-25',
+          theme: 'Scaling Open Source & SIH Victory',
+          council: [
+            { name: 'Sanket Prabhu', role: 'President', department: 'Computer Engineering', year: 'TE' as const },
+            { name: 'Neha Varde', role: 'Vice President', department: 'Information Technology', year: 'TE' as const },
+            { name: 'Aryan Chari', role: 'Technical Head', department: 'Computer Engineering', year: 'BE' as const },
+            { name: 'Tanvi Shirodkar', role: 'Events Lead', department: 'Electronics & Telecom', year: 'TE' as const },
+            { name: 'Kunal Borkar', role: 'Treasurer', department: 'Computer Engineering', year: 'SE' as const }
+          ]
+        },
+        {
+          academic_year: '2023-24',
+          theme: 'ICPC Ascent & High-Performance Computing',
+          council: [
+            { name: 'Aditya Naik', role: 'President', department: 'Computer Engineering', year: 'BE' as const },
+            { name: 'Simran Dessai', role: 'Vice President', department: 'Information Technology', year: 'BE' as const },
+            { name: 'Sanket Prabhu', role: 'Technical Lead', department: 'Computer Engineering', year: 'SE' as const },
+            { name: 'Rahul Shet', role: 'Events Coordinator', department: 'Computer Engineering', year: 'TE' as const },
+            { name: 'Pooja Gaonkar', role: 'Treasurer', department: 'Electronics & Telecom', year: 'TE' as const }
+          ]
+        },
+        {
+          academic_year: '2022-23',
+          theme: 'Post-Pandemic Revival & Web3 Bootcamps',
+          council: [
+            { name: 'Vikram Joshi', role: 'President', department: 'Computer Engineering', year: 'BE' as const },
+            { name: 'Rhea Fernandes', role: 'Vice President', department: 'Computer Engineering', year: 'BE' as const },
+            { name: 'Aditya Naik', role: 'Technical Lead', department: 'Computer Engineering', year: 'TE' as const },
+            { name: 'Shreya Phadke', role: 'Events Head', department: 'Information Technology', year: 'BE' as const }
+          ]
+        }
+      ]
+    };
+  }
+
+  if (club.slug === 'entrepreneurship-club') {
+    return {
+      ...club,
+      faculty_advisor: {
+        name: 'Prof. Rajesh Gaonkar',
+        designation: 'Assistant Professor & Venture Mentor',
+        department: 'Mechanical Engineering',
+        email: 'rgaonkar@gec.ac.in',
+        cabin: 'Mechanical Block, Room 108'
+      },
+      next_meeting: {
+        title: 'Startup Pitch Deck Clinic & GSInC Seed Grant Prep',
+        date: '2026-11-25',
+        time: '04:00 PM - 05:30 PM',
+        venue: 'Mechanical Dept AV Hall',
+        agenda: 'Pitch deck reviews, venture valuation models, and submission guidance for Goa State Innovation Council student grants.',
+        mode: 'In-Person' as const
+      },
+      flagship_events: [
+        'GEC Startup Pitch Conclave',
+        'Venture Capital & Angel Investor Roundtable',
+        'Industry Leader Immersion Series',
+        'Product Strategy & Financial Modeling Bootcamp'
+      ],
+      council: [
+        { name: 'Vandana Shenvi', role: 'President / Student Lead', department: 'Mechanical Engineering', year: 'BE' as const, email: 'vandana.ent@gec.ac.in' },
+        { name: 'Pratik Naik', role: 'Vice President / Co-Lead', department: 'Computer Engineering', year: 'TE' as const, email: 'pratik.n@gec.ac.in' },
+        { name: 'Anjali Shirodkar', role: 'Corporate Relations Head', department: 'Electronics & Telecom', year: 'TE' as const, email: 'anjali.s@gec.ac.in' },
+        { name: 'Rohan Kare', role: 'Venture & Finance Lead', department: 'Mechanical Engineering', year: 'SE' as const, email: 'rohan.k@gec.ac.in' },
+        { name: 'Shreya Prabhu', role: 'PR & Branding Lead', department: 'Information Technology', year: 'TE' as const, email: 'shreya.p@gec.ac.in' },
+        { name: 'Nikhil Dessai', role: 'Incubation Operations', department: 'Civil Engineering', year: 'SE' as const, email: 'nikhil.d@gec.ac.in' }
+      ],
+      council_history: [
+        {
+          academic_year: '2024-25',
+          theme: 'Scaling Student Ventures & Angel Seed Connect',
+          council: [
+            { name: 'Vandana Shenvi', role: 'President', department: 'Mechanical Engineering', year: 'BE' as const },
+            { name: 'Pratik Naik', role: 'Vice President', department: 'Computer Engineering', year: 'TE' as const },
+            { name: 'Anjali Shirodkar', role: 'Corporate Relations', department: 'Electronics & Telecom', year: 'TE' as const },
+            { name: 'Rohan Kare', role: 'Finance Head', department: 'Mechanical Engineering', year: 'SE' as const }
+          ]
+        },
+        {
+          academic_year: '2023-24',
+          theme: 'Corporate Immersion & Market Discovery',
+          council: [
+            { name: 'Gaurav Dessai', role: 'President', department: 'Mechanical Engineering', year: 'BE' as const },
+            { name: 'Vandana Shenvi', role: 'Vice President', department: 'Mechanical Engineering', year: 'TE' as const },
+            { name: 'Pratik Naik', role: 'Finance Head', department: 'Computer Engineering', year: 'SE' as const },
+            { name: 'Divya Naik', role: 'PR Head', department: 'Information Technology', year: 'BE' as const }
+          ]
+        },
+        {
+          academic_year: '2022-23',
+          theme: 'Foundational Incubation & GSInC Ties',
+          council: [
+            { name: 'Mihir Varde', role: 'President', department: 'Mechanical Engineering', year: 'BE' as const },
+            { name: 'Gaurav Dessai', role: 'Vice President', department: 'Mechanical Engineering', year: 'TE' as const },
+            { name: 'Rhea Sawant', role: 'Secretary', department: 'Computer Engineering', year: 'BE' as const }
+          ]
+        }
+      ]
+    };
+  }
+
+  if (club.slug === 'arm-robotics-club') {
+    return {
+      ...club,
+      faculty_advisor: {
+        name: 'Dr. Vinay Shirodkar',
+        designation: 'Associate Professor & Robotics Lab Head',
+        department: 'Electronics & Telecommunication',
+        email: 'vshirodkar@gec.ac.in',
+        cabin: 'ETC Block, Room 302'
+      },
+      next_meeting: {
+        title: 'ROS2 Autonomous Navigation & Rover Field Testing',
+        date: '2026-11-28',
+        time: '03:30 PM - 05:30 PM',
+        venue: 'Robotics & Mechatronics Lab',
+        agenda: 'Differential drive calibration, LiDAR sensor fusion, and field testing for Robocon arena obstacles.',
+        mode: 'In-Person' as const
+      },
+      flagship_events: [
+        'RoboWars & Autonomous Obstacle Derby',
+        'National ABU Robocon Delegation',
+        'Drone Dynamics & FPV Racing Workshop',
+        'Embedded Systems & Microcontroller Hack'
+      ],
+      council: [
+        { name: 'Aditya Sawant', role: 'President / Team Captain', department: 'Electronics & Telecom', year: 'BE' as const, email: 'aditya.robotics@gec.ac.in' },
+        { name: 'Gautam Kamat', role: 'Mechanical & Chassis Head', department: 'Mechanical Engineering', year: 'TE' as const, email: 'gautam.k@gec.ac.in' },
+        { name: 'Tanvi Shirodkar', role: 'Embedded Systems Lead', department: 'Electronics & Telecom', year: 'TE' as const, email: 'tanvi.s@gec.ac.in' },
+        { name: 'Siddhesh Parab', role: 'Software & ROS Lead', department: 'Computer Engineering', year: 'TE' as const, email: 'siddhesh.p@gec.ac.in' },
+        { name: 'Rahul Chari', role: 'Logistics & Fabrication', department: 'Mechanical Engineering', year: 'SE' as const, email: 'rahul.c@gec.ac.in' }
+      ],
+      council_history: [
+        {
+          academic_year: '2024-25',
+          theme: 'Autonomous Navigation & National Arena Breakthrough',
+          council: [
+            { name: 'Aditya Sawant', role: 'President', department: 'Electronics & Telecom', year: 'BE' as const },
+            { name: 'Gautam Kamat', role: 'Mechanical Head', department: 'Mechanical Engineering', year: 'TE' as const },
+            { name: 'Tanvi Shirodkar', role: 'Embedded Lead', department: 'Electronics & Telecom', year: 'TE' as const }
+          ]
+        },
+        {
+          academic_year: '2023-24',
+          theme: 'ABU Robocon National Finalist Run',
+          council: [
+            { name: 'Omkar Naik', role: 'President', department: 'Mechanical Engineering', year: 'BE' as const },
+            { name: 'Aditya Sawant', role: 'Vice President', department: 'Electronics & Telecom', year: 'TE' as const },
+            { name: 'Sneha Vernekar', role: 'Software Head', department: 'Computer Engineering', year: 'BE' as const }
+          ]
+        }
+      ]
+    };
+  }
+
+  if (club.slug === 'quiz-club') {
+    return {
+      ...club,
+      faculty_advisor: {
+        name: 'Prof. Milind Sakhardande',
+        designation: 'Associate Professor & Quizmaster',
+        department: 'Civil Engineering',
+        email: 'milind.s@gec.ac.in',
+        cabin: 'Civil Annex, Room C-12'
+      },
+      next_meeting: {
+        title: 'Weekly MELA Trivia Jam & Buzzer Battle',
+        date: '2026-11-27',
+        time: '04:30 PM - 06:00 PM',
+        venue: 'Central Library Seminar Room',
+        agenda: 'Audio-visual pop culture, sci-tech trivia, and team allocations for the upcoming Tata Crucible rounds.',
+        mode: 'In-Person' as const
+      },
+      flagship_events: [
+        'Megabytes Annual Open General Quiz',
+        'Goa Inter-Collegiate Quiz Open',
+        'MELA (Music, Entertainment, Lit, Arts) Quiz',
+        'BizTech Corporate Trivia Challenge'
+      ],
+      council: [
+        { name: 'Gaurav Narvekar', role: 'President / Head Quizmaster', department: 'Information Technology', year: 'BE' as const, email: 'gaurav.quiz@gec.ac.in' },
+        { name: 'Rohan Fernandes', role: 'Vice President / Tech Quizmaster', department: 'Information Technology', year: 'SE' as const, email: 'rohan.f@gec.ac.in' },
+        { name: 'Ananya Prabhu', role: 'General & Literary Lead', department: 'Computer Engineering', year: 'TE' as const, email: 'ananya.p@gec.ac.in' },
+        { name: 'Soham Naik', role: 'Logistics & Buzzer In-Charge', department: 'Electronics & Telecom', year: 'TE' as const, email: 'soham.n@gec.ac.in' }
+      ],
+      council_history: [
+        {
+          academic_year: '2024-25',
+          theme: 'State Inter-Collegiate Championship Double',
+          council: [
+            { name: 'Gaurav Narvekar', role: 'President', department: 'Information Technology', year: 'BE' as const },
+            { name: 'Rohan Fernandes', role: 'Vice President', department: 'Information Technology', year: 'SE' as const }
+          ]
+        },
+        {
+          academic_year: '2023-24',
+          theme: 'Tata Crucible Semi-Finals Run',
+          council: [
+            { name: 'Varun Dessai', role: 'President', department: 'Computer Engineering', year: 'BE' as const },
+            { name: 'Gaurav Narvekar', role: 'Vice President', department: 'Information Technology', year: 'TE' as const }
+          ]
+        }
+      ]
+    };
+  }
+
+  // Default rich data for any other club
+  const deptMap: Record<string, string> = {
+    Technical: 'Computer Engineering',
+    Robotics: 'Electronics & Telecom',
+    Cultural: 'Student Affairs Council',
+    Entrepreneurship: 'Mechanical Engineering',
+    Science: 'Mining & Basic Sciences',
+    Sports: 'Physical Education Dept',
+    Literary: 'Humanities & Information Tech',
+    'Social and Community': 'Civil & Environmental Dept'
+  };
+
+  const assignedDept = deptMap[club.category] || 'Engineering Dept';
+
+  return {
+    ...club,
+    faculty_advisor: {
+      name: club.faculty_coordinator,
+      designation: 'Faculty Advisor & Associate Professor',
+      department: assignedDept,
+      email: club.faculty_coordinator_email,
+      cabin: `${assignedDept.split(' ')[0]} Block, Room 201`
+    },
+    next_meeting: {
+      title: `${club.name} Regular Assembly & Strategy Session`,
+      date: '2026-11-26',
+      time: '04:30 PM - 05:45 PM',
+      venue: club.meeting_info.split(',')[1]?.trim() || 'Central Activity Center',
+      agenda: 'Project status review, upcoming competition delegation, and semester activity planning.',
+      mode: 'In-Person' as const
+    },
+    flagship_events: [
+      `${club.name} Annual Showcase`,
+      `Inter-Collegiate ${club.category} Championship`,
+      'Hands-on Masterclass & Workshop Series',
+      'Campus Open Day Demonstration'
+    ],
+    council: [
+      { name: club.student_coordinator, role: 'President / Student Lead', department: assignedDept, year: 'TE' as const, email: club.student_coordinator_email },
+      { name: 'Aryan Shenvi', role: 'Vice President / Co-Lead', department: assignedDept, year: 'TE' as const },
+      { name: 'Divya Gaonkar', role: 'Secretary & Documentation', department: 'Computer Engineering', year: 'SE' as const },
+      { name: 'Prathamesh Naik', role: 'Events & Operations Lead', department: assignedDept, year: 'TE' as const },
+      { name: 'Siddhi Borkar', role: 'Treasurer & Public Relations', department: 'Information Technology', year: 'SE' as const }
+    ],
+    council_history: [
+      {
+        academic_year: '2024-25',
+        theme: 'Excellence & Inter-Departmental Collaboration',
+        council: [
+          { name: club.student_coordinator, role: 'President', department: assignedDept, year: 'TE' as const },
+          { name: 'Aryan Shenvi', role: 'Vice President', department: assignedDept, year: 'TE' as const },
+          { name: 'Divya Gaonkar', role: 'Secretary', department: 'Computer Engineering', year: 'SE' as const }
+        ]
+      },
+      {
+        academic_year: '2023-24',
+        theme: 'State-Level Recognition & Campus Expansion',
+        council: [
+          { name: 'Nikhil Prabhu', role: 'President', department: assignedDept, year: 'BE' as const },
+          { name: club.student_coordinator, role: 'Vice President', department: assignedDept, year: 'SE' as const },
+          { name: 'Ananya Hegde', role: 'Secretary', department: assignedDept, year: 'TE' as const }
+        ]
+      },
+      {
+        academic_year: '2022-23',
+        theme: 'Inaugural Expansion on Farmagudi Hill',
+        council: [
+          { name: 'Kavita Shet', role: 'President', department: assignedDept, year: 'BE' as const },
+          { name: 'Nikhil Prabhu', role: 'Vice President', department: assignedDept, year: 'TE' as const }
+        ]
+      }
+    ]
+  };
+});
 
 export const INITIAL_EVENTS: Event[] = [
   {

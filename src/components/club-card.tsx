@@ -37,15 +37,12 @@ export const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
           </span>
         </div>
 
-        {/* Demo Badge */}
-        {club.is_demo && (
-          <div className="absolute top-3 right-3">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-900/80 text-slate-300 backdrop-blur-md border border-slate-700">
-              <Sparkles className="w-2.5 h-2.5 text-amber-400" />
-              Demo Club
-            </span>
-          </div>
-        )}
+        {/* Established Year Badge */}
+        <div className="absolute top-3 right-3">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-black/60 text-white backdrop-blur-md border border-white/15">
+            Estd. {club.established_year}
+          </span>
+        </div>
 
         {/* Membership status overlay if joined */}
         {membership && (

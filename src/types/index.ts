@@ -33,6 +33,40 @@ export interface SocialLinks {
   youtube?: string;
 }
 
+export interface CouncilMember {
+  name: string;
+  role: string;
+  department: string;
+  year: 'FE' | 'SE' | 'TE' | 'BE';
+  email?: string;
+  avatar?: string;
+  linkedin?: string;
+  github?: string;
+}
+
+export interface CouncilYearHistory {
+  academic_year: string;
+  theme?: string;
+  council: CouncilMember[];
+}
+
+export interface ClubMeeting {
+  title: string;
+  date: string;
+  time: string;
+  venue: string;
+  agenda: string;
+  mode: 'In-Person' | 'Hybrid' | 'Online';
+}
+
+export interface FacultyAdvisor {
+  name: string;
+  designation: string;
+  department: string;
+  email: string;
+  cabin?: string;
+}
+
 export interface Club {
   id: string;
   name: string;
@@ -55,6 +89,11 @@ export interface Club {
   is_demo: boolean;
   established_year: number;
   created_at: string;
+  faculty_advisor?: FacultyAdvisor;
+  council?: CouncilMember[];
+  council_history?: CouncilYearHistory[];
+  next_meeting?: ClubMeeting;
+  flagship_events?: string[];
 }
 
 export type MembershipStatus = 'pending' | 'approved' | 'rejected';

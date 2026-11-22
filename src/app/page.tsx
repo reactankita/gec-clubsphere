@@ -77,24 +77,27 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0B1F3A] via-[#0D284F] to-[#0B1F3A] text-white pt-16 pb-24 lg:pt-24 lg:pb-32">
-        {/* Decorative background grid and blurs */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-purple-500/15 blur-[100px] rounded-full pointer-events-none"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#071527] via-[#0B1F3A] to-[#071527] text-white pt-16 pb-20 lg:pt-20 lg:pb-28">
+        {/* Real GEC Campus Photo Background Texture */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/67/Goa_Engineering_College.jpg"
+            alt="Goa College of Engineering Campus"
+            className="w-full h-full object-cover filter contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071527] via-[#0B1F3A]/80 to-[#071527]/90"></div>
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="max-w-3xl mx-auto text-center space-y-5">
             {/* Institution Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/60 border border-blue-700/50 text-blue-200 text-xs font-semibold backdrop-blur-md shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/60 border border-blue-700/50 text-blue-200 text-xs font-semibold backdrop-blur-md shadow-sm">
               <GraduationCap className="w-4 h-4 text-blue-400" />
-              <span>Goa College of Engineering (GEC), Farmagudi, Goa</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-              <span className="text-blue-300 font-normal">Student Affairs Portal</span>
+              <span>Goa College of Engineering • Farmagudi, Ponda</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
               Discover Your Passion.{' '}
               <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
                 Build Your Community.
@@ -102,66 +105,83 @@ export default function HomePage() {
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-              Explore student clubs, discover exciting events, develop new skills, and become part of the vibrant campus community at Goa College of Engineering.
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
+              Explore 16 active student clubs, register for hackathons, join weekly coding jams, and connect with faculty advisors at GEC Farmagudi.
             </p>
 
             {/* Action Buttons */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/clubs"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all text-sm group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-600/30 transition-all text-xs group"
               >
                 <Compass className="w-4 h-4" />
-                <span>Explore Clubs</span>
+                <span>Explore 16 Clubs</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/events"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold backdrop-blur-md transition-all text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold backdrop-blur-md transition-all text-xs"
               >
                 <Calendar className="w-4 h-4 text-blue-300" />
-                <span>Discover Events</span>
-              </Link>
-            </div>
-
-            {/* Quick Campus Persona Quick-Access Pill */}
-            <div className="pt-6 flex items-center justify-center gap-2 text-xs text-slate-400">
-              <span>Active Persona:</span>
-              <span className="font-semibold text-slate-200">{currentUser.full_name}</span>
-              <span className="px-2 py-0.5 rounded bg-blue-950 border border-blue-800 text-blue-300 capitalize text-[11px]">
-                {currentUser.role.replace('_', ' ')}
-              </span>
-              <Link href="/login" className="text-blue-400 hover:text-blue-300 underline ml-2">
-                Switch Role
+                <span>Upcoming Events</span>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Floating Campus Highlights Banner */}
-        <div className="container mx-auto px-4 sm:px-6 mt-16 max-w-5xl">
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4 sm:p-6 shadow-2xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-              <div className="pt-2 md:pt-0">
-                <p className="text-xs uppercase tracking-wider text-blue-300 font-semibold">Campus</p>
-                <p className="text-sm font-bold text-white mt-1">Farmagudi Hill, Ponda</p>
-                <p className="text-[11px] text-slate-400">Green 285-acre campus</p>
+        {/* Real GEC Campus Landmarks Visual Strip */}
+        <div className="container mx-auto px-4 sm:px-6 mt-12 max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 h-28 group shadow-lg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/67/Goa_Engineering_College.jpg"
+                alt="GEC Main Building"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-2.5 left-3 text-left">
+                <span className="text-[10px] text-blue-300 font-semibold uppercase tracking-wider block">Admin Block</span>
+                <span className="text-xs font-bold text-white">Main Building</span>
               </div>
-              <div className="pt-2 md:pt-0">
-                <p className="text-xs uppercase tracking-wider text-blue-300 font-semibold">Legacy</p>
-                <p className="text-sm font-bold text-white mt-1">58+ Years of Excellence</p>
-                <p className="text-[11px] text-slate-400">Established 1967</p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 h-28 group shadow-lg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Goa_Engineering_College_-_Library.jpg"
+                alt="GEC Central Library"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-2.5 left-3 text-left">
+                <span className="text-[10px] text-indigo-300 font-semibold uppercase tracking-wider block">Knowledge Hub</span>
+                <span className="text-xs font-bold text-white">Central Library</span>
               </div>
-              <div className="pt-2 md:pt-0">
-                <p className="text-xs uppercase tracking-wider text-blue-300 font-semibold">Student Bodies</p>
-                <p className="text-sm font-bold text-white mt-1">16 Active Chapters</p>
-                <p className="text-[11px] text-slate-400">Technical to Cultural</p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 h-28 group shadow-lg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Goa_Engineering_College_-_Hostel_3.jpg"
+                alt="GEC Student Hostels"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-2.5 left-3 text-left">
+                <span className="text-[10px] text-emerald-300 font-semibold uppercase tracking-wider block">Student Life</span>
+                <span className="text-xs font-bold text-white">Campus Hostels</span>
               </div>
-              <div className="pt-2 md:pt-0">
-                <p className="text-xs uppercase tracking-wider text-blue-300 font-semibold">Accreditation</p>
-                <p className="text-sm font-bold text-white mt-1">AICTE & NBA Approved</p>
-                <p className="text-[11px] text-slate-400">Goa University Affiliated</p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 h-28 group shadow-lg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Goa_Engineering_College_-_Windmill.jpg"
+                alt="GEC Farmagudi Peak"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div className="absolute bottom-2.5 left-3 text-left">
+                <span className="text-[10px] text-amber-300 font-semibold uppercase tracking-wider block">285 Acres</span>
+                <span className="text-xs font-bold text-white">Farmagudi Hill</span>
               </div>
             </div>
           </div>

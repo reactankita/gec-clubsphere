@@ -102,6 +102,67 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Real GEC Farmagudi Campus Gallery */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-rose-500" />
+            <span>Farmagudi Hill Campus (285 Acres)</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/67/Goa_Engineering_College.jpg"
+                alt="GEC Main Administrative Building"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-white">
+                <span className="text-xs font-bold block">GEC Main Administrative Building</span>
+                <span className="text-[10px] text-slate-300">Office of the Principal & Dean of Student Affairs</span>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Goa_Engineering_College_-_Library.jpg"
+                alt="GEC Central Library"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-white">
+                <span className="text-xs font-bold block">Central Library & Digital Knowledge Center</span>
+                <span className="text-[10px] text-slate-300">Hub for Quiz Club & Literary Council meets</span>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Goa_Engineering_College_-_Hostel_3.jpg"
+                alt="GEC Student Hostels"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-white">
+                <span className="text-xs font-bold block">Campus Hostels & Residential Quarters</span>
+                <span className="text-[10px] text-slate-300">Vibrant residential campus community life</span>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Goa_Engineering_College_-_Windmill.jpg"
+                alt="GEC Farmagudi Windmill"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-white">
+                <span className="text-xs font-bold block">Renewable Energy Hill & Windmill Peak</span>
+                <span className="text-[10px] text-slate-300">Stargazing point for GEC Astronomy Club</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* AICTE Activity Points info */}
         <div className="p-6 rounded-2xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 text-xs sm:text-sm text-blue-900 dark:text-blue-200 space-y-2">
           <div className="flex items-center gap-2 font-bold">
