@@ -2,27 +2,27 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Club } from '@/types';
 import { useApp } from '@/context/AppContext';
 import { getCategoryColor } from '@/lib/utils';
-import { Users, ArrowRight, CheckCircle2, Clock, Sparkles } from 'lucide-react';
+import { Users, ArrowRight, CheckCircle2, Clock } from 'lucide-react';
+import { SafeImage } from '@/components/safe-image';
 
 interface ClubCardProps {
   club: Club;
 }
 
 export const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
-  const { getUserMembershipForClub, currentUser } = useApp();
+  const { getUserMembershipForClub } = useApp();
   const membership = getUserMembershipForClub(club.id);
   const categoryStyle = getCategoryColor(club.category);
 
   return (
-    <div className="group relative flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-200 overflow-hidden">
-      {/* Top Banner Image */}
+    <div className="group relative flex flex-col rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-200 overflow-hidden">
+      {/* Top Banner Image with SafeImage fallback */}
       <div className="relative h-36 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
-        <img
-          src={club.banner_url}
+        <SafeImage
+          src={club.banner_url || '/images/gec-building.jpg'}
           alt={club.name}
           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -39,7 +39,7 @@ export const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
 
         {/* Established Year Badge */}
         <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-black/60 text-white backdrop-blur-md border border-white/15">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-black/60 text-white backdrop-blur-md border border-white/15">
             Estd. {club.established_year}
           </span>
         </div>
@@ -48,12 +48,12 @@ export const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
         {membership && (
           <div className="absolute bottom-2 right-3">
             {membership.membership_status === 'approved' ? (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-600 text-white shadow">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-600 text-white shadow">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Member
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-500 text-white shadow">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-amber-500 text-white shadow">
                 <Clock className="w-3.5 h-3.5" />
                 Pending
               </span>
@@ -67,10 +67,11 @@ export const ClubCard: React.FC<ClubCardProps> = ({ club }) => {
         <div>
           {/* Logo + Title */}
           <div className="flex items-start gap-3">
-            <div className="relative -mt-9 w-14 h-14 rounded-xl border-2 border-white dark:border-slate-900 overflow-hidden shadow-md bg-white dark:bg-slate-800 shrink-0">
-              <img
+            <div className="relative -mt-9 w-14 h-14 rounded-2xl border-2 border-white dark:border-slate-900 overflow-hidden shadow-md bg-white dark:bg-slate-800 shrink-0">
+              <SafeImage
                 src={club.logo_url}
                 alt={`${club.name} logo`}
+                fallbackSrc="/images/gec-building.jpg"
                 className="w-full h-full object-cover"
               />
             </div>

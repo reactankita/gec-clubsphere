@@ -1,22 +1,16 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { AppProvider } from '@/context/AppContext';
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
+import { AppLayoutShell } from '@/components/app-layout-shell';
 import { ToastContainer } from '@/components/toast-container';
 
 export const metadata: Metadata = {
-  title: 'GEC ClubSphere — Goa College of Engineering Club Management System',
+  title: 'GEC Club Management System — Goa College of Engineering',
   description:
-    'Discover student clubs, register for campus events, and manage extracurricular activities at Goa College of Engineering, Farmagudi, Goa.',
-  keywords: [
-    'Goa College of Engineering',
-    'GEC Farmagudi',
-    'GEC Clubs',
-    'ClubSphere',
-    'College Club Management System',
-    'Engineering Clubs Goa',
-  ],
+    'Official student club management platform of Goa College of Engineering (GEC), Farmagudi, Ponda, Goa.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -26,11 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-200">
+      <body className="min-h-full font-sans antialiased bg-[#F8F9FA] dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white">
         <AppProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <AppLayoutShell>{children}</AppLayoutShell>
           <ToastContainer />
         </AppProvider>
       </body>

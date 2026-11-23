@@ -70,21 +70,16 @@ export default function EventsPage() {
   }, [events, clubs, searchQuery, selectedCategory, selectedClubId, timelineFilter]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-10 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Header Breadcrumb & Title */}
-        <div className="max-w-3xl mb-8">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">
-            <Calendar className="w-4 h-4" />
-            <span>Goa College of Engineering Event Calendar</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Campus Events & Hackathons
-          </h1>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Register for university workshops, national hackathons, cultural festivals, and sports leagues organized by student chapters at GEC Farmagudi.
-          </p>
-        </div>
+    <div className="space-y-6 max-w-7xl mx-auto">
+      {/* Header Breadcrumb & Title */}
+      <div className="max-w-3xl">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Campus Events & Hackathons
+        </h1>
+        <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          Register for workshops, national hackathons, cultural festivals, and sports leagues at GEC Farmagudi.
+        </p>
+      </div>
 
         {/* Filters and Controls */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-sm space-y-4 mb-8">
@@ -217,6 +212,5 @@ export default function EventsPage() {
           </div>
         )}
       </div>
-    </div>
-  );
-}
+    );
+  }

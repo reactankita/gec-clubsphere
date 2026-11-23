@@ -83,21 +83,16 @@ export default function ClubsPage() {
   }, [clubs, searchQuery, selectedCategory, membershipFilter, sortBy, getUserMembershipForClub]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-10 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Header Breadcrumb & Title */}
-        <div className="max-w-3xl mb-8">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2">
-            <Compass className="w-4 h-4" />
-            <span>Goa College of Engineering Student Council</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Campus Club Directory
-          </h1>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Discover all 16 official and active student bodies at GEC Farmagudi. Filter by technical, cultural, literary, or sports domains to find your community.
-          </p>
-        </div>
+    <div className="space-y-6 max-w-7xl mx-auto">
+      {/* Header Breadcrumb & Title */}
+      <div className="max-w-3xl">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Campus Club Directory
+        </h1>
+        <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          Discover all 16 official student bodies at GEC Farmagudi. Filter by technical, cultural, literary, or sports domains.
+        </p>
+      </div>
 
         {/* Controls: Search, Filters, View toggle */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-sm space-y-4 mb-8">
@@ -306,6 +301,5 @@ export default function ClubsPage() {
           </div>
         )}
       </div>
-    </div>
-  );
-}
+    );
+  }

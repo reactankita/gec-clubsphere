@@ -12,6 +12,8 @@ import {
   MapPin
 } from 'lucide-react';
 
+import { SafeImage } from '@/components/safe-image';
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 lg:py-20">
@@ -110,8 +112,8 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/6/67/Goa_Engineering_College.jpg"
+              <SafeImage
+                src="/images/gec-building.jpg"
                 alt="GEC Main Administrative Building"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -123,21 +125,8 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Goa_Engineering_College_-_Library.jpg"
-                alt="GEC Central Library"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-3 left-3 text-white">
-                <span className="text-xs font-bold block">Central Library & Digital Knowledge Center</span>
-                <span className="text-[10px] text-slate-300">Hub for Quiz Club & Literary Council meets</span>
-              </div>
-            </div>
-
-            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Goa_Engineering_College_-_Hostel_3.jpg"
+              <SafeImage
+                src="/images/gec-hostel.jpg"
                 alt="GEC Student Hostels"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -149,15 +138,28 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Goa_Engineering_College_-_Windmill.jpg"
-                alt="GEC Farmagudi Windmill"
+              <SafeImage
+                src="/images/gec-building.jpg"
+                alt="Central Library & Digital Knowledge Center"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-3 left-3 text-white">
-                <span className="text-xs font-bold block">Renewable Energy Hill & Windmill Peak</span>
-                <span className="text-[10px] text-slate-300">Stargazing point for GEC Astronomy Club</span>
+                <span className="text-xs font-bold block">Central Library & Digital Knowledge Center</span>
+                <span className="text-[10px] text-slate-300">Hub for Quiz Club & Literary Council meets</span>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group h-52 relative">
+              <SafeImage
+                src="/images/gec-hostel.jpg"
+                alt="GEC Farmagudi Hill"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-white">
+                <span className="text-xs font-bold block">Farmagudi Campus Hill & Western Ghats Peak</span>
+                <span className="text-[10px] text-slate-300">285 scenic acres in Ponda, Goa</span>
               </div>
             </div>
           </div>

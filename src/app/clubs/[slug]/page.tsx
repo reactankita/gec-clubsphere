@@ -36,6 +36,8 @@ import {
   CalendarCheck
 } from 'lucide-react';
 
+import { SafeImage } from '@/components/safe-image';
+
 export default function ClubDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
@@ -94,7 +96,7 @@ export default function ClubDetailPage() {
   const categoryStyle = getCategoryColor(club.category);
 
   // Real GEC Goa campus image fallback
-  const gecCampusBanner = 'https://upload.wikimedia.org/wikipedia/commons/6/67/Goa_Engineering_College.jpg';
+  const gecCampusBanner = '/images/gec-building.jpg';
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -144,8 +146,9 @@ END:VCALENDAR`;
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-20">
       {/* Top Banner with Real GEC Goa Campus Photo */}
       <div className="relative h-64 sm:h-72 lg:h-80 w-full overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <img
+        <SafeImage
           src={club.banner_url || gecCampusBanner}
+          fallbackSrc="/images/gec-building.jpg"
           alt={club.name}
           className="w-full h-full object-cover opacity-75 filter brightness-90"
         />
@@ -167,8 +170,9 @@ END:VCALENDAR`;
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="flex items-end gap-4">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-2 border-white/90 dark:border-slate-800 overflow-hidden shadow-2xl bg-white dark:bg-slate-800 shrink-0">
-                <img
+                <SafeImage
                   src={club.logo_url}
+                  fallbackSrc="/images/gec-building.jpg"
                   alt={`${club.name} logo`}
                   className="w-full h-full object-cover"
                 />
@@ -727,8 +731,9 @@ END:VCALENDAR`;
                     key={idx}
                     className="rounded-xl overflow-hidden h-48 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 group"
                   >
-                    <img
+                    <SafeImage
                       src={img}
+                      fallbackSrc="/images/gec-building.jpg"
                       alt={`${club.name} capture`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

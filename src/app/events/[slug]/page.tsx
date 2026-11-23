@@ -23,6 +23,8 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import { SafeImage } from '@/components/safe-image';
+
 export default function EventDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
@@ -83,8 +85,9 @@ export default function EventDetailPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-20">
       {/* Banner */}
       <div className="relative h-72 sm:h-96 w-full overflow-hidden bg-slate-900">
-        <img
-          src={event.banner_url}
+        <SafeImage
+          src={event.banner_url || '/images/gec-building.jpg'}
+          fallbackSrc="/images/gec-building.jpg"
           alt={event.title}
           className="w-full h-full object-cover opacity-85"
         />
